@@ -2,11 +2,8 @@ FROM python:3.10
 
 WORKDIR /app
 
-COPY main.py /app/main.py
-COPY requirements.txt /app/requirements.txt
-
-RUN pip install --default-timeout=100 -r /app/requirements.txt
-
+COPY . /app/
+RUN pip install --default-timeout=100 -r requirements.txt
 RUN apt-get update && apt-get install -y tesseract-ocr
 
 EXPOSE 8000
