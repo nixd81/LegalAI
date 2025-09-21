@@ -1,13 +1,12 @@
-# backend/Dockerfile
 FROM python:3.10
 
 WORKDIR /app
 
 COPY main.py /app/main.py
+COPY requirements.txt /app/requirements.txt
 
-RUN pip install --default-timeout=100 fastapi uvicorn PyPDF2 python-docx pytesseract pillow python-multipart
+RUN pip install --default-timeout=100 -r /app/requirements.txt
 
-# You might also need to install Tesseract-OCR for image extraction
 RUN apt-get update && apt-get install -y tesseract-ocr
 
 EXPOSE 8000
