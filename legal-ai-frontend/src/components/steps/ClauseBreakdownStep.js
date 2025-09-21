@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import AnimatedCard from '../AnimatedCard';
 import { useWizard } from '../WizardContext';
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const ClauseBreakdownStep = () => {
   const { 
     clauses, 
@@ -21,7 +21,7 @@ const ClauseBreakdownStep = () => {
     formData.append("clause", clauseText);
     
     try {
-      const res = await fetch("http://localhost:8000/explain/", {
+      const res = await fetch('${API_BASE_URL}/explain/', {
         method: "POST",
         body: formData,
       });

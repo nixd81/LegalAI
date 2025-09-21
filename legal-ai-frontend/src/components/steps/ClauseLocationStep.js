@@ -12,7 +12,7 @@ import {
 } from '../../utils/semanticMatcher';
 import AnimatedCard from '../AnimatedCard';
 
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const ClauseLocationStep = () => {
   const { 
     file, 
@@ -78,7 +78,7 @@ const ClauseLocationStep = () => {
     formData.append("query", highlightingQuery);
 
     try {
-      const res = await fetch("http://localhost:8000/highlight_pdf/", {
+      const res = await fetch('${API_BASE_URL}/highlight_pdf/', {
         method: "POST",
         body: formData,
       });

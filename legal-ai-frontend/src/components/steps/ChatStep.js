@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import AnimatedCard from '../AnimatedCard';
 import { useWizard } from '../WizardContext';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL ;
 
 const ChatStep = () => {
   const { 
@@ -46,10 +47,11 @@ const ChatStep = () => {
 
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:8000/chat/", {
-        method: "POST",
-        body: formData,
-      });
+      const res = await fetch(`${API_BASE_URL}/chat/`, {
+      method: "POST",
+      body: formData,
+});
+
       const data = await res.json();
       setChatHistory((prev) => [
         ...prev,

@@ -8,7 +8,7 @@
 
 export class SemanticMatcher {
   constructor() {
-    this.baseUrl = 'http://localhost:8000';
+    this.baseUrl = process.env.REACT_APP_API_BASE_URL;
   }
 
   /**

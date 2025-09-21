@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import DragDropUpload from '../DragDropUpload';
 import { useWizard } from '../WizardContext';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const UploadStep = () => {
   const { 
     file, 
@@ -27,7 +28,7 @@ const UploadStep = () => {
     formData.append("clauses", JSON.stringify([]));
 
     try {
-      const res = await fetch("http://localhost:8000/upload/", {
+      const res = await fetch('${API_BASE_URL}/upload/', {
         method: "POST",
         body: formData,
       });
