@@ -78,7 +78,7 @@ const ClauseLocationStep = () => {
     formData.append("query", highlightingQuery);
 
     try {
-      const res = await fetch('${API_BASE_URL}/highlight_pdf/', {
+      const res = await fetch(`${API_BASE_URL}/highlight_pdf/`, {
         method: "POST",
         body: formData,
       });
