@@ -28,7 +28,7 @@ const UploadStep = () => {
     formData.append("clauses", JSON.stringify([]));
 
     try {
-      const res = await fetch('${API_BASE_URL}/upload/', {
+      const res = await fetch(`${API_BASE_URL}/upload/`, {
         method: "POST",
         body: formData,
       });
