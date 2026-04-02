@@ -19,12 +19,22 @@ from semantic_matcher import SemanticMatcher, create_semantic_matcher, get_highl
 app = FastAPI()
 
 
+DEFAULT_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://legal-ai-liart.vercel.app",
+]
+
+frontend_origins_env = os.getenv("FRONTEND_ORIGINS", "")
+if frontend_origins_env.strip():
+    ALLOWED_ORIGINS = [origin.strip() for origin in frontend_origins_env.split(",") if origin.strip()]
+else:
+    ALLOWED_ORIGINS = DEFAULT_ALLOWED_ORIGINS
 
 # Enable CORS for local frontend dev
 app.add_middleware(
     CORSMiddleware,
-    
-    allow_origins=["https://legal-ai-liart.vercel.app"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

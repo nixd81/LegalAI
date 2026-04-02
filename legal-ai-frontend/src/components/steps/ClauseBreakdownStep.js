@@ -21,7 +21,7 @@ const ClauseBreakdownStep = () => {
     formData.append("clause", clauseText);
     
     try {
-      const res = await fetch('${API_BASE_URL}/explain/', {
+      const res = await fetch(`${API_BASE_URL}/explain/`, {
         method: "POST",
         body: formData,
       });
