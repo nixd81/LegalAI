@@ -1,0 +1,26 @@
+.git
+.gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+.env.*
+!/.env.example
+.venv/
+venv/
+myenv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Frontend and node artifacts are not needed in backend image
+legal-ai-frontend/
+node_modules/
+npm-debug.log*
+
+# Local/docs artifacts
+SEMANTIC_MATCHING_README.md
+test.py
+test_semantic_matching.py
